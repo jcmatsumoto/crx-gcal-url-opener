@@ -60,6 +60,7 @@ class Config {
   extractValidUrl(event: {
     hangoutLink?: string;
     description?: string;
+    location?: string;
     conferenceData?: any;
   }): {
     url: string;
@@ -94,6 +95,12 @@ class Config {
     if (event.hangoutLink) {
       return {
         url: event.hangoutLink,
+        rule: urlRules[urlRules.length - 1],
+      };
+    }
+    if (event.location) {
+      return {
+        url: event.location,
         rule: urlRules[urlRules.length - 1],
       };
     }

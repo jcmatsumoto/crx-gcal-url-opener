@@ -12,6 +12,7 @@ export type CalendarAPIResponse = {
   hangoutLink?: string;
   description?: string;
   conferenceData?: any;
+  location?: string;
 };
 
 const HOST = `https://www.googleapis.com/calendar/v3`;
