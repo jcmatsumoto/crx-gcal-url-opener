@@ -68,6 +68,7 @@ class Config {
   } | null {
     const urls: string[] = [
       ...getUrls(event.description ?? "", { requireSchemeOrWww: false }),
+      ...getUrls(event.location ?? "", { requireSchemeOrWww: false }),
     ];
     for (const rule of this.urlRules) {
       for (const url of urls) {
@@ -95,12 +96,6 @@ class Config {
     if (event.hangoutLink) {
       return {
         url: event.hangoutLink,
-        rule: urlRules[urlRules.length - 1],
-      };
-    }
-    if (event.location) {
-      return {
-        url: event.location,
         rule: urlRules[urlRules.length - 1],
       };
     }
