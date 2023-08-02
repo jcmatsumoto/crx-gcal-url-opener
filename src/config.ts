@@ -99,6 +99,15 @@ class Config {
         rule: urlRules[urlRules.length - 1],
       };
     }
+    if (event.location?.startsWith('Gather')) {
+      return {
+        url: 'https://app.gather.town/app/UiStmwaC5ujeGuLz/jinya-connect-engineer',
+        rule:   {
+          test: /^https:\/\/app\.gather\.town\/app\//,
+          provider: "Gather(text)",
+        },
+      };
+    }
     return null;
   }
 }
